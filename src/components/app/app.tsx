@@ -1,35 +1,3 @@
-// import { ConstructorPage } from '@pages';
-// import '../../index.css';
-// import styles from './app.module.css';
-
-// import { AppHeader } from '@components';
-// import { Outlet } from 'react-router-dom';
-// import { FC, useEffect } from 'react';
-// import { useDispatch } from '../../services/store';
-// import { getUserThunk, init } from '../../services/slices/user';
-
-// const App: FC = () => {
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     const token = localStorage.getItem('refreshToken');
-//     if (token) {
-//       dispatch(getUserThunk());
-//     } else {
-//       dispatch(init());
-//     }
-//   }, []);
-
-//   return (
-//     <div className={styles.app}>
-//       <AppHeader />
-//       <Outlet />
-//     </div>
-//   );
-// };
-
-// export default App;
-
 import {
   ConstructorPage,
   Feed,
