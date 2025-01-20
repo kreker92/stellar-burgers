@@ -29,7 +29,7 @@ const App = () => {
     dispatch(getUserThunk());
   }, [dispatch]);
 
-  const backgroundLocation = location.state?.backgroundLocation;
+  const backgroundLocation = location.state?.background;
   const goBack = () => navigate(-1);
 
   return (
@@ -99,7 +99,6 @@ const App = () => {
 
         <Route path='*' element={<NotFound404 />} />
       </Routes>
-
       {backgroundLocation && (
         <Routes>
           <Route
