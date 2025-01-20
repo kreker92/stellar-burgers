@@ -1,10 +1,11 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi, getOrderByNumberApi } from '@api';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TOrder, TOrdersData } from '@utils-types';
 
 type TFeedState = TOrdersData & {
   isLoading: boolean;
   error: any | null;
+  testOrderByNumber: TOrder | null;
 };
 
 const initialState: TFeedState = {
@@ -12,13 +13,19 @@ const initialState: TFeedState = {
   orders: [],
   error: null,
   total: 0,
-  totalToday: 0
+  totalToday: 0,
+  testOrderByNumber: null
 };
 
 export const getFeedsThunk = createAsyncThunk('feed/getAll', async () => {
   const data = await getFeedsApi();
   return data;
 });
+
+export const getOrderByNumberThunk = createAsyncThunk(
+  'order/id',
+  async (id: number) => await getOrderByNumberApi(id)
+);
 
 export const feedSlice = createSlice({
   name: 'feed',
@@ -48,6 +55,9 @@ export const feedSlice = createSlice({
         state.orders = orders;
         state.total = total;
         state.totalToday = totalToday;
+      })
+      .addCase(getOrderByNumberThunk.fulfilled, (state, action) => {
+        state.testOrderByNumber = action.payload.orders[0];
       });
   },
   selectors: {
