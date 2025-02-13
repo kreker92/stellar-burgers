@@ -12,12 +12,10 @@ export const ProtectedRoute = ({
   isForAuthenticated = true,
   children
 }: ProtectedRouteProps) => {
-  const { isAuthenticated, isInit, isAuthChecked } = useSelector(
-    (store) => store.user
-  );
+  const { isAuthenticated, isAuthChecked } = useSelector((store) => store.user);
   const location = useLocation();
 
-  if (!isInit || !isAuthChecked) {
+  if (!isAuthChecked) {
     return <Preloader />;
   }
 

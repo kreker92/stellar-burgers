@@ -22,12 +22,14 @@ export const OrderInfo: FC = () => {
 
   const dispatch = useDispatch();
   const number = Number(useParams().id);
-  useEffect(() => {
-    dispatch(getOrderByNumberThunk(number));
-  }, [number]);
-
-  const ingredients = useSelector((state) => state.ingredients.ingredients);
   const orderData = useSelector((state) => state.feed.testOrderByNumber);
+  const ingredients = useSelector((state) => state.ingredients.ingredients);
+
+  useEffect(() => {
+    if (orderData?.number !== number) {
+      dispatch(getOrderByNumberThunk(number));
+    }
+  }, [number, orderData]);
 
   /* Готовим данные для отображения */
   const orderInfo = useMemo(() => {

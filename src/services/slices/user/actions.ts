@@ -23,10 +23,7 @@ export const loginUserThunk = createAsyncThunk(
   }
 );
 
-export const logoutUserThunk = createAsyncThunk(
-  'user/logout',
-  async () => await logoutApi()
-);
+export const logoutUserThunk = createAsyncThunk('user/logout', logoutApi);
 
 export const updateUserThunk = createAsyncThunk(
   'user/update',
