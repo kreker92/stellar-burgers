@@ -115,3 +115,4 @@ export const {
   clearConstructor,
   moveIngredient
 } = constructorSlice.actions;
+export const constructorReducer = constructorSlice.reducer;

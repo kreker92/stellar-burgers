@@ -2,7 +2,9 @@ require('dotenv').config();
 
 const URL = process.env.BURGER_API_URL;
 
+import tokenResponse from './responses/token.json';
 import ingredientsResponse from './responses/ingredients.json';
+import acceptedOrderResponse from './responses/accepted-order.json';
 
 import {
   http, // модуль для мокирования сетевых запросов
@@ -14,5 +16,7 @@ if (!URL) {
 }
 
 export const handlers = [
-  http.get(`${URL}/ingredients`, () => HttpResponse.json(ingredientsResponse))
+  http.get(`${URL}/auth/token`, () => HttpResponse.json(tokenResponse)),
+  http.get(`${URL}/ingredients`, () => HttpResponse.json(ingredientsResponse)),
+  http.post(`${URL}/orders`, () => HttpResponse.json(acceptedOrderResponse))
 ];
