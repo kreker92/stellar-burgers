@@ -3,5 +3,7 @@
   "user": {
       "email": "2@qwe.ru",
       "name": "1"
-  }
+  },
+  "accessToken": "Bearer 1",
+  "refreshToken": "2"
 }

@@ -37,7 +37,3 @@ export const getUserThunk = createAsyncThunk('user/get', async () => {
   const data = await getUserApi();
   return data.user;
 });
-
-export const setUser = createAction<TUser | null, 'user/setUser'>(
-  'user/setUser'
-);
