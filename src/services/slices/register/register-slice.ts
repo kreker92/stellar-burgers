@@ -1,6 +1,6 @@
-import { loginUserApi, registerUserApi, TLoginData, TRegisterData } from '@api';
+import { registerUserApi, TRegisterData } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { setCookie } from '../../utils/cookie';
+import { setCookie } from '../../../utils/cookie';
 
 type TRegisterState = {
   data: any | null;
