@@ -8,6 +8,7 @@ import acceptedOrderResponse from './responses/accepted-order.json';
 import userResponse from './responses/user.json';
 import logoutResponse from './responses/logout.json';
 import registerResponse from './responses/register.json';
+import allOrdersResponse from './responses/allOrders.json';
 
 import {
   http, // модуль для мокирования сетевых запросов
@@ -32,5 +33,8 @@ export const handlers = [
     })
   ),
   http.get(`${URL}/auth/user`, () => HttpResponse.json(registerResponse)),
-  http.get(`${URL}/auth/register`, () => HttpResponse.json(registerResponse))
+  http.get(`${URL}/auth/register`, () => HttpResponse.json(registerResponse)),
+
+  http.get(`${URL}/orders/all`, () => HttpResponse.json(allOrdersResponse))
+
 ];
