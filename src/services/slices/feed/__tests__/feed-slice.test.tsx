@@ -8,7 +8,7 @@ import store from '../../../store';
 
 import allOrdersMock from '../../../../mocks/responses/allOrders.json';
 
-describe('Проверяем слайс register', () => {
+describe('Проверяем слайс feed', () => {
   beforeAll(() => {
     server.listen();
   });
