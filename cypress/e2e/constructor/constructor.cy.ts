@@ -1,18 +1,18 @@
 describe('Constructor', () => {
   beforeEach(() => {
-    cy.intercept('POST', 'https://norma.nomoreparties.space/api/auth/user', {
+    cy.intercept('POST', 'api/auth/user', {
       fixture: 'auth'
     });
-    cy.intercept('POST', 'https://norma.nomoreparties.space/api/login', {
+    cy.intercept('POST', 'api/login', {
       fixture: 'login'
     });
-    cy.intercept('GET', 'https://norma.nomoreparties.space/api/ingredients', {
+    cy.intercept('GET', 'api/ingredients', {
       fixture: 'ingredients'
     });
-    cy.intercept('GET', 'https://norma.nomoreparties.space/api/orders', {
+    cy.intercept('GET', 'api/orders', {
       fixture: 'orders'
     });
-    cy.visit('http://localhost:4000/');
+    cy.visit('');
     // window.localStorage.setItem(
     //   'refreshToken',
     //   JSON.stringify('test-refreshToken')

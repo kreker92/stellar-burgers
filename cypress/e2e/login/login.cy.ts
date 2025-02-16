@@ -6,7 +6,7 @@ describe('Login', () => {
     cy.intercept('GET', 'ingredients', { fixture: 'ingredients' });
     cy.intercept('GET', 'orders', { fixture: 'orders' });
 
-    cy.visit('http://localhost:4000/profile');
+    cy.visit('profile');
     cy.get('[data-testid=email_input').type(`${email}{enter}`);
     cy.get('[data-testid=password_input').type(`${password}{enter}`);
   });
