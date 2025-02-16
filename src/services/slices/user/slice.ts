@@ -99,7 +99,9 @@ export const userSlice = createSlice({
         state.userRequest = false;
         state.isAuthenticated = false;
         state.isAuthChecked = true;
-        localStorage.removeItem('refreshToken');
+        if (typeof localStorage !== 'undefined') {
+          localStorage.removeItem('refreshToken');
+        }
       });
   },
   selectors: {
