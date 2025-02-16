@@ -70,7 +70,6 @@ describe('Проверяем слайс order', () => {
   });
 
   test('тест getTotal', () => {
-
     const total = getTotal(store.getState());
     expect(total).toBe(0);
   });

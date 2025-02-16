@@ -38,5 +38,4 @@ export const handlers = [
 
   http.get(`${URL}/orders/all`, () => HttpResponse.json(allOrdersResponse)),
   http.get(`${URL}/orders`, () => HttpResponse.json(ordersResponse))
-
 ];
