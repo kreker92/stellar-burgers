@@ -3,6 +3,7 @@ import { expect, test, describe } from '@jest/globals';
 import { server } from '../../../../mocks/node';
 
 import {
+  orderSlice,
   getOrdersThunk,
   // actions
   addOrder,
@@ -10,7 +11,8 @@ import {
   // selectors
   getOrders,
   getTotal,
-  getTotalToday
+  getTotalToday,
+  initialStateOrder as initialState
 } from '../order-slice';
 
 import store from '../../../store';
@@ -18,26 +20,57 @@ import store from '../../../store';
 import ordersMock from '../../../../mocks/responses/orders.json';
 
 describe('Проверяем слайс order', () => {
-  beforeAll(() => {
-    server.listen();
+  test('getOrdersThunk fulfilled', () => {
+    const action = {
+      type: getOrdersThunk.fulfilled.type,
+      payload: ordersMock.orders
+    };
+    const state = orderSlice.reducer(initialState, action);
+    expect(state).toEqual({
+      ...initialState,
+      orders: ordersMock.orders
+    });
   });
-  afterAll(() => {
-    server.close();
+
+  test('getOrdersThunk pending', () => {
+    const action = {
+      type: getOrdersThunk.pending.type,
+      payload: ordersMock.orders
+    };
+    const state = orderSlice.reducer(initialState, action);
+    expect(state).toEqual({
+      ...initialState,
+      isLoading: true
+    });
   });
-  beforeAll(async () => {
-    // eslint-disable-next-line
-    global.document = {
-      cookie: 'accessToken=123,refreshToken=456'
-    } as any;
-    await store.dispatch(getOrdersThunk());
+
+  test('getOrdersThunk rejected', () => {
+    const msgText = 'Ошибка';
+    const action = {
+      type: getOrdersThunk.rejected.type,
+      payload: ordersMock.orders,
+      error: msgText
+    };
+    const state = orderSlice.reducer(initialState, action);
+    expect(state).toEqual({
+      ...initialState,
+      error: msgText
+    });
   });
 
   test('тест getOrders', async () => {
-    const orders = getOrders(store.getState());
+    const action = {
+      type: getOrdersThunk.fulfilled.type,
+      payload: ordersMock.orders
+    };
+    const state = orderSlice.reducer(initialState, action);
+
+    const orders = getOrders({ orders: state });
     expect(orders.length).toBe(8);
   });
 
   test('тест getTotal', () => {
+
     const total = getTotal(store.getState());
     expect(total).toBe(0);
   });
@@ -50,13 +83,13 @@ describe('Проверяем слайс order', () => {
   test('тест addOrder', async () => {
     store.dispatch(addOrder(ordersMock.orders[0]));
     const orders = getOrders(store.getState());
-    expect(orders.length).toBe(9);
+    expect(orders.length).toBe(1);
     expect(orders[orders.length - 1]).toEqual(ordersMock.orders[0]);
   });
 
   test('тест removeOrder', async () => {
-    store.dispatch(removeOrder(ordersMock.orders[1]._id));
+    store.dispatch(removeOrder(ordersMock.orders[0]._id));
     const orders = getOrders(store.getState());
-    expect(orders.length).toBe(8);
+    expect(orders.length).toBe(0);
   });
 });
