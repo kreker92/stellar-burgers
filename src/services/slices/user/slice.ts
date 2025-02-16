@@ -112,3 +112,4 @@ export const userReducer = userSlice.reducer;
 export const { authenticatedSelector, loginErrorSelector } =
   userSlice.selectors;
 export const { init } = userSlice.actions;
+export { initialState as initialStateUser };

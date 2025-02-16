@@ -65,4 +65,4 @@ export const {
   getIngredientsTypeSauces,
   getIngredientById
 } = ingredientSlice.selectors;
-// export const { addFeed, removeFeed } = ingredientSlice.actions;
+export { initialState as initialStateIngredients };

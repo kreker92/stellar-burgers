@@ -57,3 +57,4 @@ export const orderSlice = createSlice({
 export const orderReducer = orderSlice.reducer;
 export const { getOrders, getTotal, getTotalToday } = orderSlice.selectors;
 export const { addOrder, removeOrder } = orderSlice.actions;
+export { initialState as initialStateOrder };

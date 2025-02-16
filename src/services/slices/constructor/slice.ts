@@ -12,7 +12,7 @@ type TConstructorState = {
   error: string | null;
 };
 
-export const initialState: TConstructorState = {
+const initialState: TConstructorState = {
   constructorItems: {
     bun: null,
     ingredients: []
@@ -116,3 +116,4 @@ export const {
   moveIngredient
 } = constructorSlice.actions;
 export const constructorReducer = constructorSlice.reducer;
+export { initialState as initialStateConstructor };

@@ -55,5 +55,4 @@ export const registerSlice = createSlice({
 export const registerReducer = registerSlice.reducer;
 export const { registerErrorSelector, registerDataSelector } =
   registerSlice.selectors;
-// export const authenticatedSelector = (userState: TUserState) =>
-//   userState.isAuthenticated;
+export { initialState as initialStateRegister };

@@ -69,3 +69,4 @@ export const feedSlice = createSlice({
 export const feedReducer = feedSlice.reducer;
 export const { getFeeds, getLoading } = feedSlice.selectors;
 export const { addFeed, removeFeed } = feedSlice.actions;
+export { initialState as initialStateFeed };
