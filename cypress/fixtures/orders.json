@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "orders": [
+      {
+          "_id": "67b0d6e1133acd001be51156",
+          "ingredients": [
+              "643d69a5c3f7b9001cfa093d",
+              "643d69a5c3f7b9001cfa093e",
+              "643d69a5c3f7b9001cfa093d"
+          ],
+          "status": "done",
+          "name": "Флюоресцентный люминесцентный бургер",
+          "createdAt": "2025-02-15T18:03:13.471Z",
+          "updatedAt": "2025-02-15T18:03:14.108Z",
+          "number": 68457
+      },
+      {
+          "_id": "67b125d3133acd001be512dd",
+          "ingredients": [
+              "643d69a5c3f7b9001cfa093d",
+              "643d69a5c3f7b9001cfa093d"
+          ],
+          "status": "done",
+          "name": "Флюоресцентный бургер",
+          "createdAt": "2025-02-15T23:40:03.760Z",
+          "updatedAt": "2025-02-15T23:40:04.460Z",
+          "number": 68523
+      },
+      {
+          "_id": "67b125f7133acd001be512de",
+          "ingredients": [
+              "643d69a5c3f7b9001cfa093d",
+              "643d69a5c3f7b9001cfa093d"
+          ],
+          "status": "done",
+          "name": "Флюоресцентный бургер",
+          "createdAt": "2025-02-15T23:40:39.708Z",
+          "updatedAt": "2025-02-15T23:40:40.382Z",
+          "number": 68524
+      },
+      {
+        "_id": "67b24d53133acd001be515fb",
+        "ingredients": [
+            "643d69a5c3f7b9001cfa093c",
+            "643d69a5c3f7b9001cfa093c"
+        ],
+        "status": "done",
+        "name": "Краторный люминесцентный бургер",
+        "createdAt": "2025-02-16T20:40:51.923Z",
+        "updatedAt": "2025-02-16T20:40:52.544Z",
+        "number": 68583
+      }
+  ],
+  "total": 68150,
+  "totalToday": 98
+}
