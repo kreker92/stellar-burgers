@@ -24,7 +24,7 @@ import {
 import { constructorSlice } from './slices/constructor/slice';
 
 // const rootReducer = () => {}; // Заменить на импорт настоящего редьюсера
-const rootReducer = combineSlices(
+export const rootReducer = combineSlices(
   userSlice,
   registerSlice,
   orderSlice,

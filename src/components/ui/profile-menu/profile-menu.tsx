@@ -35,7 +35,10 @@ export const ProfileMenuUI: FC<ProfileMenuUIProps> = ({
     >
       Выход
     </button>
-    <p className='pt-20 text text_type_main-default text_color_inactive'>
+    <p
+      className='pt-20 text text_type_main-default text_color_inactive'
+      data-testid='page-description'
+    >
       {pathname === '/profile'
         ? 'В этом разделе вы можете изменить свои персональные данные'
         : 'В этом разделе вы можете просмотреть свою историю заказов'}
